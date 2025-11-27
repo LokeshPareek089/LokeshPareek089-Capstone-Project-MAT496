@@ -24,11 +24,21 @@ The first purpose of the capstone project is to give a chance to revise all the 
 
 # Project report Template
 
-## Title: [your title goes here]
+## Title: News Bias Detector
 
 ## Overview
 
-[your overview goes here. My project does this that  etc]
+This project builds an AI system that can read a news article and check whether it is biased. The system will:
+* Read article text or a provided URL.
+* Write a short neutral summary.
+* Identify factual statements and opinions.
+* Check factual claims using a web search API.
+* Look for emotional or one-sided language in the article.
+* Calculate a bias score between 0 and 1.
+* Predict the likely stance (for example: pro-government, anti-corporate).
+
+The final result will be stored in a structured JSON format.
+Some steps will pause for human review if the confidence is low or if the facts found online are unclear.
 
 ## Reason for picking up this project
 
