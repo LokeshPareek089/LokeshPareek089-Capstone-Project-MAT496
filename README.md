@@ -42,7 +42,18 @@ Some steps will pause for human review if the confidence is low or if the facts 
 
 ## Reason for picking up this project
 
-Expain how this project is aligned with this course content.
+I want to evaluate articles from different News-Networks, to check their credibiltiy and confirm their stance.
+
+This problem fits well with the topics taught in MAT496. It uses:
+* Prompting to instruct the AI to summarize, extract claims and score bias.
+* Structured Output to store summaries, claims and scores in JSON.
+* Semantic Search to check claims using online information.
+* Retrieval Augmented Generation (RAG) to combine AI reasoning with web search results.
+* Tool Calling to run a web search API inside the LangGraph workflow.
+* LangGraph (State, Nodes, Graph) to build a step-by-step agent to analyse the article.
+* LangSmith to trace runs, debug mistakes, and evaluate results.
+
+This project shows a practical way to analyse news using tools from the course.
 
 ## Plan
 
