@@ -59,11 +59,15 @@ This project shows a practical way to analyse news using tools from the course.
 
 I plan to excecute these steps to complete my project.
 
-- [TODO] Step 1 involves blah blah
-- [TODO] Step 2 involves blah blah
-- [TODO] Step 3 involves blah blah
-- ...
-- [TODO] Step n involves blah blah
+- [TODO] Step 1: Create a virtual environment, install required libraries, and set up the initial LangGraph state.
+- [TODO] Step 2: Build a summarization node that produces a short neutral summary.
+- [TODO] Step 3: Build a node that extracts claims and separates facts from opinions in a structured format.
+- [TODO] Step 4: Add a web search tool (like Tavily or SerpAPI) and send selected claims for checking.
+- [TODO] Step 5: Build a fact-checking node that marks claims as supported, contradicted or unclear, along with source links.
+- [TODO] Step 6: Build a language analysis node that detects loaded or emotional wording.
+- [TODO] Step 7: Build a scoring node that combines facts and language cues to produce a final bias score and stance.
+- [TODO] Step 8: Add human reviewing breakpoints for low-confidence or conflicting results.
+- [TODO] Step 9: Connect LangSmith for tracing, debugging and small-scale evaluation.
 
 ## Conclusion:
 
