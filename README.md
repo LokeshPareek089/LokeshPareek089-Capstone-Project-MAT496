@@ -66,7 +66,7 @@ I plan to excecute these steps to complete my project.
 - [DONE] Step 5: Build a fact-checking node that marks claims as supported, contradicted or unclear, along with source links.
 - [DONE] Step 6: Build a language analysis node that detects loaded or emotional wording.
 - [DONE] Step 7: Build a scoring node that combines facts and language cues to produce a final bias score and stance.
-- [TODO] Step 8: Add human reviewing breakpoints for low-confidence or conflicting results.
+- [DONE] Step 8: Add human reviewing breakpoints for low-confidence or conflicting results.
 - [TODO] Step 9: Connect LangSmith for tracing, debugging and small-scale evaluation.
 
 ## Conclusion:
