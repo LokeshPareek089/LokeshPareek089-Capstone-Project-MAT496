@@ -59,8 +59,8 @@ This project shows a practical way to analyse news using tools from the course.
 
 I plan to excecute these steps to complete my project.
 
-- [Done] Step 1: Create a virtual environment, install required libraries, and set up the initial LangGraph state.
-- [TODO] Step 2: Build a summarization node that produces a short neutral summary.
+- [DONE] Step 1: Create a virtual environment, install required libraries, and set up the initial LangGraph state.
+- [DONE] Step 2: Build a summarization node that produces a short neutral summary.
 - [TODO] Step 3: Build a node that extracts claims and separates facts from opinions in a structured format.
 - [TODO] Step 4: Add a web search tool (like Tavily or SerpAPI) and send selected claims for checking.
 - [TODO] Step 5: Build a fact-checking node that marks claims as supported, contradicted or unclear, along with source links.
