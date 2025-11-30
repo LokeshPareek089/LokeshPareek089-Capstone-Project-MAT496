@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "news_bias_detector": "./news_bias_graph.py:graph"
+  },
+  "env": ".env"
+}

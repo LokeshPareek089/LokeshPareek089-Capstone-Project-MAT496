@@ -1,0 +1,66 @@
+{
+  "article_url": "https://thewire.in/history/past-continuous-1993-bombay-blasts-were-in-response-an-entire-community-being-alienated",
+  "summary": {
+    "text": "The 1993 Bombay blasts were part of a larger pattern of terrorist attacks. The blasts occurred in 1993 and were a significant event in India's history. The article discusses the context and implications of the blasts",
+    "word_count": 500
+  },
+  "claims": {
+    "factual": [
+      {
+        "text": "1993 Bombay Blasts",
+        "confidence": 1.0
+      },
+      {
+        "text": "The Wire News India, Latest News,News from India, Politics, External Affairs, Science, Economics, Gender and Culture",
+        "confidence": 1.0
+      }
+    ],
+    "opinions": [
+      {
+        "text": "Part of a Continuum of Terror",
+        "confidence": 0.8
+      }
+    ]
+  },
+  "fact_checks": [
+    {
+      "claim": "1993 Bombay Blasts",
+      "status": "supported",
+      "confidence": 0.8,
+      "sources": [
+        "https://www.youtube.com/watch?v=KhSFC1GNgNM",
+        "https://www.youtube.com/watch?v=e0nnbwV-GJw",
+        "https://www.indiatoday.in/india/law-news/story/court-rejects-1993-mumbai-blasts-accuseds-pleas-against-use-of-past-confessions-2786583-2025-09-13"
+      ]
+    },
+    {
+      "claim": "The Wire News India, Latest News,News from India, Politics, External Affairs, Science, Economics, Gender and Culture",
+      "status": "supported",
+      "confidence": 0.8,
+      "sources": [
+        "https://m.thewire.in/amp",
+        "https://m.thewire.in/trendingnews",
+        "https://thewire.in/author/iparmar"
+      ]
+    }
+  ],
+  "language_analysis": {
+    "tone": "negative",
+    "bias_score": 0.6,
+    "loaded_phrases": [
+      "Continuum of Terror",
+      "Part of a Continuum"
+    ]
+  },
+  "bias_report": {
+    "bias_score": 0.5,
+    "stance": "left-leaning",
+    "confidence": 0.8,
+    "key_factors": [
+      "negative tone",
+      "loaded phrases",
+      "one-sided coverage"
+    ],
+    "recommendation": "Readers should consider multiple sources for a balanced view"
+  }
+}
