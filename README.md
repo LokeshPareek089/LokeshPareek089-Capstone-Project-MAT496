@@ -1,35 +1,13 @@
-Template for creating and submitting MAT496 capstone project.
-
-# Overview of MAT496
-
-In this course, we have primarily learned Langgraph. This is helpful tool to build apps which can process unstructured `text`, find information we are looking for, and present the format we choose. Some specific topics we have covered are:
-
-- Prompting
-- Structured Output 
-- Semantic Search
-- Retreaval Augmented Generation (RAG)
-- Tool calling LLMs & MCP
-- Langgraph: State, Nodes, Graph
-
-We also learned that Langsmith is a nice tool for debugging Langgraph codes.
-
-------
-
-# Capstone Project objective
-
-The first purpose of the capstone project is to give a chance to revise all the major above listed topics. The second purpose of the capstone is to show your creativity. Think about all the problems which you can not have solved earlier, but are not possible to solve with the concepts learned in this course. For example, We can use LLM to analyse all kinds of news: sports news, financial news, political news. Another example, we can use LLMs to build a legal assistant. Pretty much anything which requires lots of reading, can be outsourced to LLMs. Let your imagination run free.
-
-
 -------------------------
 
-# Project report Template
+# MAT 496: CapStone Project
 
 ## Title: News Bias Detector
 
 ## Overview
 
-This project builds an AI system that can read a news article and check whether it is biased. The system will:
-* Read article text or a provided URL.
+This project contains an Agent that can read a news article and check whether it is biased. The Agent will:
+* Read article text from provided URL(via user Break-point).
 * Write a short neutral summary.
 * Identify factual statements and opinions.
 * Check factual claims using a web search API.
@@ -39,19 +17,22 @@ This project builds an AI system that can read a news article and check whether 
 
 The final result will be stored in a structured JSON format.
 Some steps will pause for human review if the confidence is low or if the facts found online are unclear.
+This will be done by the Jupyter-Notebook file "NewsBiasDetector.ipynb"
 
 ## Reason for picking up this project
 
-I want to evaluate articles from different News-Networks, to check their credibiltiy and confirm their stance.
+I wanted to evaluate how different news networks present information and how much factual accuracy or emotional framing their articles contain. Many news websites appear neutral but may subtly
+push certain perspectives. This project helps automate the detection of such bias by checking claims, tone, and stance.
 
-This problem fits well with the topics taught in MAT496. It uses:
-* Prompting to instruct the AI to summarize, extract claims and score bias.
-* Structured Output to store summaries, claims and scores in JSON.
-* Semantic Search to check claims using online information.
-* Retrieval Augmented Generation (RAG) to combine AI reasoning with web search results.
-* Tool Calling to run a web search API inside the LangGraph workflow.
-* LangGraph (State, Nodes, Graph) to build a step-by-step agent to analyse the article.
-* LangSmith to trace runs, debug mistakes, and evaluate results.
+This problem fits well with the topics taught, it uses:
+* Prompting to instruct the LLM to summarize, classify claims, analyze tone, and compute bias.
+* Structured Output (via Pydantic) to capture summaries, extracted claims, fact-check results, and final scores.
+* Semantic Search to find relevant information online when verifying factual claims.
+* Retrieval Augmented Generation (RAG) to combine retrieved search results with LLM reasoning for fact-checking.
+* Tool Calling when the LLM interacts with Tavily (web search API).
+* LangGraph (State, Nodes, Graph) to build a step-by-step pipeline that processes the article.
+* Human-in-the-loop using LangGraph interrupts, asks for URL input, another time where the system pauses for approval if confidence is low.
+* LangSmith for tracing, debugging, verifying execution flow, and observing intermediate states.
 
 This project shows a practical way to analyse news using tools from the course.
 
@@ -71,26 +52,22 @@ I plan to excecute these steps to complete my project.
 
 ## Conclusion:
 
-I had planned to achieve {this this}. I think I have/have-not achieved the conclusion satisfactorily. The reason for your satisfaction/unsatisfaction.
+I had planned to build a complete news-analysis system that could:
+* Read and extract article text
+* Identify claims
+* Perform fact-checking using search results
+* Analyze language and tone
+* Calculate a bias score
+* Include human oversight.
 
-----------
+I believe I have successfully achieved these goals.
 
-# Added instructions:
+Why the project is satisfactory:
+* Each topic mentioned been applied.
+* The system works end-to-end with real URLs.
+* The results are structured, interpretable, and easy to debug via LangSmith.
+* The human-review mechanism makes it safer and more realistic.
 
-- This is a `solo assignment`. Each of you will work alone. You are free to talk, discuss with chatgpt, but you are responsible for what you submit. Some students may be called for viva. You should be able to each and every line of work submitted by you.
-
-- `commit` History maintenance.
-  - Fork this respository and build on top of that.
-  - For every step in your plan, there has to be a commit.
-  - Change [TODO] to [DONE] in the plan, before you commit after that step. 
-  - The commit history should show decent amount of work spread into minimum two dates. 
-  - **All the commits done in one day will be rejected**. Even if you are capable of doing the whole thing in one day, refine it in two days.  
- 
- - Deadline: Nov 30, Sunday 11:59 pm
-
-
-# Grading: total 25 marks
-
-- Coverage of most of topics in this class: 20
-- Creativity: 5
-  
+What could be better:
+If I had additional time, I would add a UI and batch-analysis support for comparing sources.
+-------------------------
