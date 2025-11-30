@@ -67,7 +67,7 @@ I plan to excecute these steps to complete my project.
 - [DONE] Step 6: Build a language analysis node that detects loaded or emotional wording.
 - [DONE] Step 7: Build a scoring node that combines facts and language cues to produce a final bias score and stance.
 - [DONE] Step 8: Add human reviewing breakpoints for low-confidence or conflicting results.
-- [TODO] Step 9: Connect LangSmith for tracing, debugging and small-scale evaluation.
+- [DONE] Step 9: Connect LangSmith for tracing, debugging and small-scale evaluation.
 
 ## Conclusion:
 
