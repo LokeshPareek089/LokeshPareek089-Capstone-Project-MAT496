@@ -36,6 +36,9 @@ This problem fits well with the topics taught, it uses:
 
 This project shows a practical way to analyse news using tools from the course.
 
+## Video Summary Link
+https://drive.google.com/file/d/120ZxQw4tbZSpnMM9d1TETuI_lRAzy146/view?usp=drivesdk
+
 ## Plan
 
 I plan to excecute these steps to complete my project.
