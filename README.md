@@ -162,7 +162,6 @@ I plan to excecute these steps to complete my project.
   * Analyze language and tone
   * Calculate a bias score
   * Include human oversight.
-
   I believe I have successfully achieved these goals.
 
   Why the project is satisfactory:
@@ -172,6 +171,6 @@ I plan to excecute these steps to complete my project.
   * The human-review mechanism makes it safer and more realistic.
 
   What could be better:
-  If I had additional time, I would add a UI and batch-analysis support for comparing sources.
-  Add a Web Interface for easier use.
+  * If I had additional time, I would add a UI and batch-analysis support for comparing sources.
+  * Add a Web Interface for easier use.
 -------------------------
