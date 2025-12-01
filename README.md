@@ -145,6 +145,14 @@ I plan to excecute these steps to complete my project.
   * Pauses at human_review only if confidence thresholds met
   * Results viewable in Studio's state inspector
 
+## Technologies Used
+- LangGraph: State management, conditional routing, breakpoints
+- Groq (llama-3.3-70b): LLM for analysis with structured outputs
+- Tavily API: Web search for fact verification
+- Pydantic: Structured output validation
+- LangSmith: Execution tracing and debugging
+- BeautifulSoup: Web scraping for article extraction
+
 ## Conclusion:
 
   I had planned to build a complete news-analysis system that could:
