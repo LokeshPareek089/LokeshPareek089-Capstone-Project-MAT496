@@ -50,24 +50,120 @@ I plan to excecute these steps to complete my project.
 - [DONE] Step 8: Add human reviewing breakpoints for low-confidence or conflicting results.
 - [DONE] Step 9: Connect LangSmith for tracing, debugging and small-scale evaluation.
 
+## Working
+### Workflow Steps (NewsBiasDetector.ipynb)
+  1. URL Input Node (Breakpoint #1)
+     * Purpose: Accepts news article URL from user
+     * Process:
+       * Workflow pauses at startup waiting for URL input
+       * User enters URL interactively
+       * Fetches article content using BeautifulSoup web scraping
+       * Extracts clean text from paragraphs, removing scripts/styles/navigation
+     * Output: Raw article text stored in state
+  2. Summarization Node
+     * Purpose: Generate neutral baseline summary
+     * Process:
+       * Uses structured output (Pydantic Summary model)
+       * Prompts LLM to create 2-3 sentence factual summary
+       * Estimates word count
+     * Output: Neutral summary and word count
+  3. Claims Extraction Node
+     * Purpose: Identify verifiable facts vs opinions
+     * Process:
+       * Uses structured output (Pydantic ClaimsExtraction model)
+       * LLM extracts 5-10 key statements from article
+       * Classifies each as "fact" or "opinion" with confidence score
+     * Output: Lists of factual claims and opinion statements
+  4. Fact Checking Node
+     * Purpose: Verify factual claims using web search
+     * Process:
+       * Selects top 3-5 factual claims for verification
+       * For each claim:
+         * Queries Tavily API for relevant search results
+         * LLM analyzes search context to determine: supported, contradicted, or unclear
+         * Assigns confidence score (0-1)
+       * Flags needs_review if confidence < 0.3 or status unclear
+     * Output: Fact-check results with status, evidence, sources, and confidence
+  5. Language Analysis Node
+     * Purpose: Detect emotional or loaded language
+     * Process:
+       * Uses structured output (Pydantic LanguageAnalysis model)
+       * LLM identifies:
+         * Emotionally charged words/phrases
+         * Overall tone (neutral/positive/negative/inflammatory)
+         * Language bias score (0=neutral, 1=extremely biased)
+         * Example biased sentences
+     * Output: Tone assessment, bias score, loaded phrases list
+  6. Bias Scoring Node
+     * Purpose: Calculate final bias assessment
+     * Process:
+       * Compiles all previous analysis (summary, fact-checks, language)
+       * LLM generates structured BiasReport with:
+         * Overall bias score (0-1 scale)
+         * Predicted stance (e.g., "pro-government", "neutral")
+         * Confidence in assessment
+         * Key contributing factors
+         * Reader recommendation
+       * Triggers review if bias > 0.7 OR confidence < 0.5
+     * Output: Final bias report with actionable recommendations
+  7. Human Review Node (Breakpoint #2 - Conditional)
+     * Purpose: Manual verification for edge cases
+     * Trigger Conditions:
+       * High bias score (> 0.7)
+       * Low confidence (< 0.5)
+       * Unclear fact-check results
+     * Process:
+       * Displays current analysis and reason for review
+       * Pauses execution
+       * User approves/rejects to continue
+     * Output: Human approval flag
+  8. Export & Display
+     * Purpose: Save results and present findings
+     * Process:
+       * Generates formatted console report
+       * Exports complete analysis to JSON file
+       * Includes all intermediate outputs and final scores
+
+### State Management
+  The BiasDetectorState TypedDict tracks:
+  * Inputs: article_url, article_text
+  * Processing: summary, claims, fact_checks, language_analysis, bias_report
+  * Control Flow: needs_human_review, review_reason, human_approved
+  * Tracing: messages list for debugging
+
+### LangGraph Studio Integration (news_bias_graph.py)
+  The standalone Python file adapts the notebook for LangGraph Studio deployment:
+  Key Differences:
+  * No URL Input Breakpoint: Starts directly with fetch_article_node (URL provided in initial state)
+  * Platform Checkpointer: Uses cloud-native persistence instead of local MemorySaver
+  * Single Breakpoint: Only human_review node for conditional intervention
+  * Exported Graph: graph = create_graph() enables Studio visualization
+
+  Studio Workflow:
+  * User provides URL in initial state configuration
+  * Graph executes automatically through scoring node
+  * Pauses at human_review only if confidence thresholds met
+  * Results viewable in Studio's state inspector
+
 ## Conclusion:
 
-I had planned to build a complete news-analysis system that could:
-* Read and extract article text
-* Identify claims
-* Perform fact-checking using search results
-* Analyze language and tone
-* Calculate a bias score
-* Include human oversight.
+  I had planned to build a complete news-analysis system that could:
+  * Read and extract article text
+  * Identify claims
+  * Perform fact-checking using search results
+  * Analyze language and tone
+  * Calculate a bias score
+  * Include human oversight.
 
-I believe I have successfully achieved these goals.
+  I believe I have successfully achieved these goals.
 
-Why the project is satisfactory:
-* Each topic mentioned been applied.
-* The system works end-to-end with real URLs.
-* The results are structured, interpretable, and easy to debug via LangSmith.
-* The human-review mechanism makes it safer and more realistic.
+  Why the project is satisfactory:
+  * Each topic mentioned been applied.
+  * The system works end-to-end with real URLs.
+  * The results are structured, interpretable, and easy to debug via LangSmith.
+  * The human-review mechanism makes it safer and more realistic.
 
-What could be better:
-If I had additional time, I would add a UI and batch-analysis support for comparing sources.
+  What could be better:
+  If I had additional time, I would add a UI and batch-analysis support for comparing sources.
+  Add a Web Interface for easier use.
 -------------------------
